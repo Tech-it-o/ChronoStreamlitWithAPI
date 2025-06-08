@@ -5,7 +5,7 @@ from google_auth_oauthlib.flow import Flow
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
-from transformers import AutoModelForCausalLM, AutoTokenizer
+import requests
 import torch
 import json
 import re
@@ -80,39 +80,19 @@ def convert_to_dict(text):
     else:
         return({})
 
-# --- Model ---
+# --- API ---
 
-model_name_or_path = "TechitoTamani/Qwen3-0.6B_FinetuneWithMyData-Merged"
-
-with open('tools.json', 'r', encoding='utf-8') as f:
-    TOOLS = json.load(f)
-
-@st.cache_resource
-def load_model_and_tokenizer():
-    tokenizer = AutoTokenizer.from_pretrained(model_name_or_path)
-    model = AutoModelForCausalLM.from_pretrained(
-        model_name_or_path,
-        torch_dtype=torch.bfloat16,
-        device_map="auto",
-        trust_remote_code=True,
-    )
-    return tokenizer, model
-
-tokenizer, model = load_model_and_tokenizer()
+API_URL = "https://fcc7-2403-6200-89a8-e79b-c049-5237-600d-d17f.ngrok-free.app/generate"
 
 def get_model_answer(messages):
-    text = tokenizer.apply_chat_template(
-        messages,
-        tokenize=False,
-        add_generation_prompt=True,
-        tools=TOOLS,
-        enable_thinking=False
-    )
-    inputs = tokenizer(text, return_tensors="pt").to(model.device)
-    with torch.no_grad():
-        outputs = model.generate(**inputs, max_new_tokens=128)
-    output_text = tokenizer.batch_decode(outputs)[0][len(text):]
-    return output_text
+    try:
+        response = requests.post(API_URL, json={"messages": messages})
+        if response.status_code == 200:
+            return response.json().get("response", "❌ ไม่พบ response จาก API")
+        else:
+            return f"❌ API error: {response.status_code} - {response.text}"
+    except Exception as e:
+        return f"❌ Request failed: {str(e)}"
 
 # --- Calendar ---
 
