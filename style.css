@@ -1,0 +1,86 @@
+@keyframes fadeInTitle {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInButton {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in-title {
+    animation: fadeInTitle 1s ease-out;
+}
+
+.fade-in-button {
+    animation: fadeInButton 1s ease-out;
+    animation-delay: 1s;
+    animation-fill-mode: both;
+}
+
+.custom-title {
+    font-size: 60px;
+    font-weight: 800;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login-button {
+    display: flex;
+    justify-content: center;
+}
+
+.login-button a button {
+    background-color: #663399;
+    border: none;
+    color: white;
+    padding: 10px 24px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(106, 13, 173, 0.5);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-button a button:hover {
+    background-color: #7b29e1;
+    box-shadow: 0 6px 14px rgba(123, 41, 225, 0.7);
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.fade-in-image {
+  animation: fadeIn 1.5s ease-in forwards;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  display: block;
+  margin: 40px auto 40px auto;  /* เพิ่ม margin-top 40px */
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.fade-in-up {
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 1.5s;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-size: 16px;
+    text-align: center;
+}
