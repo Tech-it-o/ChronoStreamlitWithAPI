@@ -305,8 +305,18 @@ def main():
                 <!-- ชื่อ -->
                 <div class="fade-in-title custom-title">ChronoCall-Q</div>
 
+                <!-- คำอธิบาย -->
+                <div class="fade-in-subtitle" style="font-size: 20px; color: #888; margin-top: -10px;">
+                    Intelligent Calendar Command Parser
+                </div>
+
+                <!-- เครดิต -->
+                <div class="fade-in-credit" style="font-size: 14px; color: #aaa; margin-top: 5px;">
+                    By TechitoTamani | wayward-wolves
+                </div>
+
                 <!-- ปุ่ม ล่าช้า -->
-                <div class="fade-in-button login-button">
+                <div class="fade-in-button login-button" style="margin-top: 20px;">
                     <a href="{auth_url}" target="_blank" rel="noopener noreferrer">
                         <button>Login with Google</button>
                     </a>
