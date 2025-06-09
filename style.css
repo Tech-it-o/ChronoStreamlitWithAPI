@@ -84,3 +84,33 @@
     font-size: 16px;
     text-align: center;
 }
+
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.fade-in-subtitle, .fade-in-credit {
+    animation: fadeInRight 1.2s ease-out both;
+}
+
+.fade-in-subtitle {
+    font-size: 20px;
+    color: #888;
+    margin-top: -10px;
+    text-align: center;
+}
+
+.fade-in-credit {
+    font-size: 14px;
+    color: #aaa;
+    margin-top: 5px;
+    text-align: center;
+}
