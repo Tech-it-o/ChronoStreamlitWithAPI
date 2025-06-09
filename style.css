@@ -98,7 +98,7 @@
 }
 
 .fade-in-subtitle, .fade-in-credit {
-    animation: fadeInLeft 1.2s ease-out both;
+    animation: fadeInLeft 1.4s ease-out both;
 }
 
 .fade-in-subtitle {
