@@ -82,7 +82,7 @@ def convert_to_dict(text):
 
 # --- API ---
 
-API_URL = "https://06cc-2403-6200-89a8-e79b-6052-f6a9-a0e4-e75d.ngrok-free.app/generate"
+API_URL = "https://788e-2403-6200-89a8-e79b-65fd-8914-9ce7-9753.ngrok-free.app/generate"
 
 def get_model_answer(messages):
     try:
